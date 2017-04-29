@@ -9,9 +9,11 @@ Config { font = "-*-Fixed-Bold-R-Normal-*-18-*-*-*-*-*-*-*"
                      , Run Cpu ["-L","3","-H","50","--normal","green","--high","red"] 10
                      , Run Memory ["-t","Mem: <usedratio>%"] 10
                      , Run Swap [] 10
-                     , Run Date "%a %b %_d %Y %H:%M:%S" "date" 10
+                     , Run Date "%_d %b %Y %H:%M" "date" 10
                      , Run Battery ["-t","<left>%","-L","50","-H","75","-h","green","-n","yellow","-l","red"] 10
                      --, Run Volume "defaultMaster" [] 10
+                     , Run Com "/home/fedor/.xmonad/getWiFiLevel.sh" [] "wifi" 30
+                     , Run Com "/home/fedor/.xmonad/getVolumeLevel.sh" [] "volume" 2
                      , Run Kbd [ ("us", "<fc=#0000FF>US</fc>")
                                , ("ru", "<fc=#FF0000>RU</fc>")
                                ]
@@ -19,5 +21,5 @@ Config { font = "-*-Fixed-Bold-R-Normal-*-18-*-*-*-*-*-*-*"
                      ]
         , sepChar = "%"
         , alignSep = "}{"
-        , template = "%StdinReader% | %cpu% | %memory% | %wls33% }{ %kbd% %battery% <fc=#ee9a00>%date%</fc> "
+        , template = "%StdinReader% | %cpu% | %memory% | %wls33% %wifi% }{ %kbd% | battery %battery% | volume %volume% <fc=#ee9a00>%date%</fc> "
         }
