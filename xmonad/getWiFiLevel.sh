@@ -13,9 +13,9 @@ bars=`expr $stngth / 33`
 
 case $bars in
   0)  bar='[---]' ;;
-  1)  bar='[/--]' ;;
-  2)  bar='[//-]' ;;
-  3)  bar='[///]' ;;
+  1)  bar='[|--]' ;;
+  2)  bar='[||-]' ;;
+  3)  bar='[|||]' ;;
   *)  bar='<fc=#FF0000>Not connected</fc>' ;;
 esac
 
